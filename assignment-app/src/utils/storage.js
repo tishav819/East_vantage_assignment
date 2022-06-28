@@ -1,6 +1,6 @@
 export function setItem(key ,value) {
     // sessionStorage.setItem(key, JSON.stringify(value))
-     localStorage.setItem(key, JSON.stringify(value))
+     localStorage.setItem(key, JSON.stringify(value))  // for storing in localstorage
    }
    
    export function getItem(key) {
@@ -12,13 +12,13 @@ export function setItem(key ,value) {
      return null
    }
    
-   export function deleteItem(key) {
+   export function deleteItem(key) {  // for deleting 
      sessionStorage.removeItem(key)
    }
    
    
    
-   export function clear() {
+   export function clear() {   // using clear function to clear the data
      sessionStorage.clear()
      localStorage.clear()
    }
