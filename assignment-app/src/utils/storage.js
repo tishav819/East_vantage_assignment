@@ -15,9 +15,7 @@ export function setItem(key ,value) {
    export function deleteItem(key) {  // for deleting 
      sessionStorage.removeItem(key)
    }
-   
-   
-   
+ 
    export function clear() {   // using clear function to clear the data
      sessionStorage.clear()
      localStorage.clear()

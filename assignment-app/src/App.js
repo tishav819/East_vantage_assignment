@@ -13,12 +13,12 @@ function App() {
   },[])
 
   const fetchDataApi= async()=>{
-      const url="https://randomuser.me/api";    // async await to resolve proise and fetching the data
+      const url = "https://randomuser.me/api";    // async await to resolve proise and fetching the data
       try{
         const getData=await getReq(url)         // axios used here to fetch data
-        console.log(getData?.data?.results)
+        
         setData(getData?.data?.results)
-        setItem('result',getData?.data?.results)
+        setItem('result',getData?.data?.results) // setting data into localstorrage
       }
       catch(err){
           console.log('err::',err)
@@ -29,20 +29,18 @@ function App() {
   function refreshcomponent() {  // made one function for reload the component and showing new data from the end point, by changing the state
     //window.location.reload(false);
     return axios.get(`https://randomuser.me/api`).then(res => {
-      console.log(res?.data?.results)
+      
         setData(res?.data?.results)
         setItem('result',res?.data?.results)
     });
   }
-
-
 
   return (
     <div className="App">
        <h1> East Vantage: Assignment</h1>
        {data && data.map((item,i)=>   // using map function to get the data from the given api,using key for the uniqueness, making  /                          button with onclick function
          <div key={i}>                
-           <p>  Full name : {item.name.title}  {item.name.first}  {item.name.last} </p>
+           <p>  Full name : {item.name.title}  {item.name.first}  {item.name.last} </p>  
            <p>  Email : {item.email} </p>
          </div>
          
